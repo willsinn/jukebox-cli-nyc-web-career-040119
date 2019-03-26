@@ -34,14 +34,14 @@ end
 
 
 def play(my_songs)
-  #this method is slightly different!
-  #you should still ask the user for input and collect their song choice
-  #this time, only allow user's to input a song name
-  #check to see if the name they give is in fact a key of the my_songs hash
-  #if it isn't, tell them their choice is invalid
-  #if it is, play the song using the system 'open <file path>' syntax
-  #get the file path of the song by looking it up in the my_songs hash
-  
+  puts "Please enter a song name"
+  song_to_play = gets.chomp
+  if !my_songs.keys.include?(song_to_play)
+    puts "Invalid input, please try again"
+  else
+    puts "Now playing #{song_to_play}"
+    system 'open ' << my_songs[song_to_play]
+  end
 end
 
 def exit_jukebox
